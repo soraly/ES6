@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function add(...item){
+            var sum = 0;
+            for(var i of item){
+                sum += i;
+            }
+            console.log(sum)
+        }
+        add(1,2,3,10) //==> 16
+
+        var [x,...y] = ['hello','test','hi']; //y==> ['test','hi']
+
+        var arr = [1,2,3], arr2 = [3,4,5];
+        console.log([...arr,...arr2]) // ==> [1, 2, 3, 3, 4, 5]
+
+        var xy = [...arr] //xy ===> [1,2,3]
+
+        //for of 和 for in 区别
+        Object.prototype.sayhi = ()=>{console.log(hi)} 
+        Object.prototype.emm = 'emm...'
+        var obj = {name: 'xiang', id: 123}
+        for (var key in obj){
+            console.log(key,'key')
+        } //===>  name key  id key  sayhi key  emm key  原型里的属性也会被打印出来 
+
+        Array.prototype.sayhi = ()=>{};
+        Array.prototype.emm = 'emm...'
+        var oarr = ['hello',()=>{}];
+        for(var item of oarr){
+            console.log(item) //===>> hello ()=>{}  原型里的属性不会被打印出来
+        }
+
+    </script>
+</body>
+</html>
