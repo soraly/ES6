@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Document</title>
+    <style>
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+        a {
+            margin-right: 20px;
+            padding: 5px;
+            border-radius: 2px;
+            border: 1px solid gray;
+        }
+        .container div {
+            margin-top: 20px
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href='' onclick="jump('/assets',event)">学籍管理</a>
+        <a href='' onclick="jump('/book',event)">成长档案</a>
+        <div class="">
+            智慧校园 <br>
+            <span id='content'></span>
+        </div>
+    </div>
+<script>
+    function jump(path,event){
+        //阻止默认跳转事件
+        event.preventDefault();
+
+        //用pushstate改变url
+        history.pushState({},'xiang',path);
+
+        //url改变后，根据pathname的不同加载不同数据
+        var dom = document.getElementById('content')
+        switch(location.pathname){
+            case '/assets':
+            dom.innerHTML = 'this is assets content';
+            break;
+            case '/book':
+            dom.innerHTML = 'hello, i am book';
+        }
+    }
+
+    //监听url判断是否改变内容
+    window.onload = function(){
+        var dom = document.getElementById('content')
+        switch(location.pathname){
+            case '/assets':
+            dom.innerHTML = 'this is assets content';
+            break;
+            case '/book':
+            dom.innerHTML = 'hello, i am book';
+        }
+    }
+
+
+    
+
+</script>
+</body>
+</html>
