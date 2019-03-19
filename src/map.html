@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var m1 = new Map(), obj={val: 'myname'}
+        m1.set('id','003');
+        m1.set(obj, 'lzxiang');
+        console.log(m1); // ==> Map(2) {"id" => "003", {…} => "lzxiang"}
+        //map对比obj的优点：
+        //1. 有size，可以方便地统计对象长度
+        //2. key可以是任意类型的数据，不限于字符串
+
+    </script>
+</body>
+</html>
