@@ -11,6 +11,9 @@
         var s1 = Symbol();
         var s2 = Symbol();
         console.log(s1 == s2); // ==> false
+
+		var obj = {name:'xiang',[s1]:'lzx'};
+		console.log(Object.keys(obj)); //==> ['name'] for in循环和keys都不能遍历出symbol类型的key
     </script>
 </body>
 </html>
