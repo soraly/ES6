@@ -15,8 +15,15 @@
 		var obj = {name:'xiang',[s1]:'lzx'};
 		console.log(Object.keys(obj)); //==> ['name'] for in循环和keys都不能遍历出symbol类型的key
 
+        //Reflect.ownKeys方法可以返回所有类型的键名，包括常规键名和 Symbol 键名。
+        console.log(Reflect.ownKeys(obj)); //==>["name", Symbol()]
 
+        //Object.getOwnPropertySymbols方法可以读取Symbol属性
+        console.log(Object.getOwnPropertySymbols(obj)); //==> [Symbol()]
 
+        //Symbol.for
+        Symbol.for('lzx')===Symbol.for('lzx') //==> true
+        Symbol.for('lzx')===Symbol('lzx') //==> false
     </script>
 </body>
 </html>
